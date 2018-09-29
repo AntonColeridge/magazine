@@ -1,22 +1,11 @@
 
-const { users } = require('../../../utility/mock-data');
-const toolboxLocation = '../../../utility/toolbox';
-const { signIn } = require(toolboxLocation);
+const { signIn } = require('./login-helper');
 
 const POST_login = (req, res) => {
 
     const { username, password } = req.body;
 
-
-
-    res.send(
-        
-        signIn(username, password, users)
-    );
-
-
-
-
+    res.send(signIn(username, password));
 }
 
-module.exports = POST_login;
+module.exports = { POST_login };

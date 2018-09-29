@@ -1,7 +1,7 @@
 //SETUP=========================================
 const loginRouter = require('express').Router();
-const POST_login = require('./controller');
+const {POST_login} = require('./controller');
 
-loginRouter.use('/', POST_login) //so will work with api/login path
+loginRouter.use('/', POST_login); //so will work with api/login path
 
-module.exports= loginRouter;
+module.exports={loginRouter};
