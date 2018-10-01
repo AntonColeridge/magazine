@@ -1,4 +1,5 @@
 const { users } = require('../../../utility/mock-data');
+const {update,reset,show} = require('../../../utility/data-handler');
 
 const register = (username, password) => {
     // Password  8-25 characters, no spaces
@@ -22,6 +23,10 @@ const register = (username, password) => {
     if (newUser.username) {
         if (newUser.password) {
             users.push(newUser);
+            console.log(JSON.stringify(users));
+            update(users);
+            show();
+
 
             return { status: 'passed' };
         } else {
