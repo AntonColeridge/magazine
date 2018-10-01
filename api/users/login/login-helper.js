@@ -4,20 +4,20 @@ const signIn = (username, password) => {
     let msg={
         username:'invalid',
         password: 'invalid'
-    }
+    };
     validUser = users.find((user) => {
         return user.username === username;
     });
 
-   if(validUser){
-       msg.username='valid';
-   }else{return msg}
+    if(validUser){
+        msg.username='valid';
+    }else{return msg;}
 
     if(validUser && validUser.password===password){
         msg.password='valid';
-    }else {return msg}
+    }else {return msg;}
 
     return msg;
-}
+};
 
-module.exports = { signIn }
+module.exports = { signIn };

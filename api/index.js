@@ -1,12 +1,11 @@
-//SETUP=========================================
+//  SETUP=========================================
 const apiRouter = require('express').Router();
-const {registerRouter} = require('./users/register');
-const {loginRouter} = require('./users/login')
+const { registerRouter } = require('./users/register');
+const { loginRouter } = require('./users/login');
 
-//CONFIGURATION=================================
+//  CONFIGURATION=================================
 
 apiRouter.use('/register', registerRouter);
 apiRouter.use('/login', loginRouter);
 
-
-module.exports =  {apiRouter} 
+module.exports = { apiRouter };
