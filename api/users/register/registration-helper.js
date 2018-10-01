@@ -14,15 +14,15 @@ const register = (username, password) => {
         password: /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])[\w\d!@#$%]{8,25}$/
     };
 
-    let newUser = {};
+    let user  = {};
 
-    newUser.username = patterns.username.test(username) ? username : undefined;
+    user.username = patterns.username.test(username) ? username : undefined;
 
-    newUser.password = patterns.password.test(password) ? password : undefined;
+    user.password = patterns.password.test(password) ? password : undefined;
 
-    if (newUser.username) {
-        if (newUser.password) {
-            users.push(newUser);
+    if (user.username) {
+        if (user.password) {
+            users.push(user);
             console.log(JSON.stringify(users));
             update(users);
             show();
