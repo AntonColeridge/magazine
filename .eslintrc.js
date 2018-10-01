@@ -29,6 +29,7 @@ module.exports = {
         ],
         "camelcase": "off",
         "no-console": "off",
+        "new-cap": ["error", { "capIsNewExceptions": ["Router"] }], 
         
         
         "guard-for-in": "off",
