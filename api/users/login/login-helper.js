@@ -7,13 +7,13 @@ const signIn = (username, password) => {
     if (!validUser) {
         return {
             error: 'Invalid username',
-        }
+        };
     }
 
     if (validUser.password !== password) {
         return {
             error: 'Invalid password',
-        }
+        };
     }
 
     return validUser;

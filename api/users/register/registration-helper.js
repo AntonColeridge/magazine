@@ -1,5 +1,5 @@
 const { users } = require('../../../utility/mock-data');
-const {update,reset,show} = require('../../../utility/data-handler');
+const { update, reset, show } = require('../../../utility/data-handler');
 
 const register = (username, password) => {
     // Password  8-25 characters, no spaces
@@ -14,7 +14,7 @@ const register = (username, password) => {
         password: /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])[\w\d!@#$%]{8,25}$/
     };
 
-    let user  = {};
+    let user = {};
 
     user.username = patterns.username.test(username) ? username : undefined;
 
@@ -27,13 +27,17 @@ const register = (username, password) => {
             update(users);
             show();
 
+            if (!user.username) {
+                return { status: 'failed, username invalid' };
+            }
+
+            if (!user.password) {
+                return { status: 'failled, password invalid' };
+            }
+
+            users.push(user);
 
             return { status: 'passed' };
-        } else {
-            return { status: 'failled, password invalid' };
-        }
-    } else {
-        return { status: 'failed, username invalid' };
-    }
-};
-module.exports = { register };
+
+        };
+        module.exports = { register };
