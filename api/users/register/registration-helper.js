@@ -40,4 +40,7 @@ const register = (username, password) => {
             return { status: 'passed' };
 
         };
-        module.exports = { register };
+     
+    }
+};
+module.exports = { register };
