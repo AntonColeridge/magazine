@@ -19,16 +19,17 @@ const register = (username, password) => {
 
     newUser.password = patterns.password.test(password) ? password : undefined;
 
-    if (newUser.username) {
-        if (newUser.password) {
-            users.push(newUser);
-
-            return { status: 'passed' };
-        } else {
-            return { status: 'failled, password invalid' };
-        }
-    } else {
+    if (!newUser.username) {
         return { status: 'failed, username invalid' };
     }
+
+    if (!newUser.password) {
+        return { status: 'failled, password invalid' };
+    }
+
+    users.push(newUser);
+
+    return { status: 'passed' };
+    
 };
 module.exports = { register };
