@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {users} = require('./mock-data');
+
 
 // const rawTextData = fs.readFileSync('..path_to_data.json');
 
@@ -10,8 +10,23 @@ const update = (data) => {
 };
 const reset = () => {
     fs.writeFileSync('../magazine/utility/data.json', '');
-};const show = () => {
-    console.log(JSON.parse(fs.readFileSync('../magazine/utility/data.json', 'utf8')));
+}; const show = () => {
+    // console.log(
+    JSON.parse(
+        fs.readFileSync('../magazine/utility/data.json', 'utf8')
+    );
+
+    const fileCOntents = JSON.parse(
+        fs.readFileSync('../magazine/utility/data.json')
+    );
+
+
+
+    const dbReport = fileCOntents.map(element => {
+        element.password = '********';
+        return element;
+    });
+    return JSON.stringify(dbReport);
 };
 
-module.exports = { reset,update,show};
+module.exports = { reset, update, show };
