@@ -1,9 +1,6 @@
-const { users } = require('../../../utility/mock-data');
-const { update, reset, show } = require('../../../utility/data-handler');
-const {
-    isString,
-    bundleWithConfig,
-} = require('bemu-validator');
+const {users} = require('../../../utility/mock-data');
+const {update, reset, show} = require('../../../utility/data-handler');
+const {isString, bundleWithConfig} = require('bemu-validator');
 
 const register = (username, password) => {
     // Password  8-25 characters, no spaces
@@ -29,7 +26,6 @@ const register = (username, password) => {
         }
     };
 
-
     const validUsername = bundleWithConfig(isString, usernameConfig);
     let user = {};
 
@@ -37,23 +33,18 @@ const register = (username, password) => {
 
     user.password = patterns.password.test(password) ? password : undefined;
 
-
-
-
     if (!user.username) {
-        return { status: 'failed, username invalid' };
+        return {status: 'failed, username invalid'};
     }
 
     if (!user.password) {
-        return { status: 'failled, password invalid' };
+        return {status: 'failled, password invalid'};
     }
 
     users.push(user);
     update(users);
     show();
-    return { status: 'passed' };
-
+    return {status: 'passed'};
 };
 
-
-module.exports = { register };
+module.exports = {register};

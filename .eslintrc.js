@@ -1,3 +1,4 @@
+
 module.exports = {
     "env": {
         "browser": true,
@@ -27,17 +28,28 @@ module.exports = {
             "error",
             "always"
         ],
+        "prettier/prettier": ["error", {
+            "singleQuote": true, "parser": "flow",
+            'bracketSpacing': false, 'tabWidth': 4,
+            'arrowParens':'always','bracketSpacing':false,
+            'trailingComma':'none'
+
+
+        }],
         "camelcase": "off",
         "no-console": "off",
-        "new-cap": ["error", { "capIsNewExceptions": ["Router"] }], 
-        
-        
+        "new-cap": ["error", { "capIsNewExceptions": ["Router"] }],
+
+
         "guard-for-in": "off",
         "no-case-declarations": "off",
         "max-len": [
             "warn",
             { "code": 80 }
-        ]
+        ],
 
-    }
+
+    },
+    "plugins": ["prettier"]
+
 };

@@ -1,4 +1,4 @@
-const { users } = require('../../../utility/mock-data');
+const {users} = require('../../../utility/mock-data');
 const signIn = (username, password) => {
     let validUser;
     validUser = users.find((user) => {
@@ -6,17 +6,17 @@ const signIn = (username, password) => {
     });
     if (!validUser) {
         return {
-            error: 'Invalid username',
+            error: 'Invalid username'
         };
     }
 
     if (validUser.password !== password) {
         return {
-            error: 'Invalid password',
+            error: 'Invalid password'
         };
     }
 
     return validUser;
 };
 
-module.exports = { signIn };
+module.exports = {signIn};
